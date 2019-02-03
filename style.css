@@ -53,3 +53,9 @@
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 8px;
 }
+
+.etabs-views {
+    border: 0 !important;
+    height: 100vh !important;
+    padding: 0 !important;
+}
