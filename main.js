@@ -1,8 +1,7 @@
 
-const {app, BrowserWindow, Menu, Notification} = require('electron')
+const { app, BrowserWindow, Menu, Notification } = require('electron')
 const Store = require('./store.js');
 let mainWindow
-
 
 // First instantiate the class
 const store = new Store({
@@ -14,10 +13,17 @@ const store = new Store({
   }
 });
 
-function createWindow () {
-  // Create the browser window.
+function createWindow() {
+  // Create the browser wi
   let { width, height } = store.get('windowBounds');
-  mainWindow = new BrowserWindow({ width, height });
+
+  mainWindow = new BrowserWindow({
+    minHeight: 300,
+    minWidth: 300,
+    width,
+    height,
+    frame: false //Disables Sys UI
+  });
 
   // and load the index.html of the app.
   mainWindow.loadFile('index.html')
@@ -29,13 +35,12 @@ function createWindow () {
   });
 
   mainWindow.on('closed', function () {
-
     mainWindow = null
   })
 }
 
 
-app.on('ready', function(){
+app.on('ready', function () {
   createWindow()
 
   /*const template = [
