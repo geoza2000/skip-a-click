@@ -4,6 +4,17 @@
 
 const TabGroup = require("electron-tabs");
 const dragula = require("dragula");
+const Store = require('./store.js');
+
+// First instantiate the class
+const store = new Store({
+    // We'll call our data file 'user-preferences'
+    configName: 'user-preferences',
+    defaults: {
+      // 1 is the default opened tab of our window
+      lastActive: 0
+    }
+  });
 
 
 let tabGroup = new TabGroup({
@@ -18,7 +29,6 @@ let tab1 = tabGroup.addTab({
     title: "",
     iconURL: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png',
     src: "http://mail.crowdpolicy.com",
-    visible: true,
     closable: false
 });
 let tab = tabGroup.addTab({
@@ -34,3 +44,16 @@ let tab2 = tabGroup.addTab({
     src: "https://crowdpolicy.slack.com/",
     closable: false
 });
+
+var lastActive = store.get('lastActive')
+tabGroup.eachTab(function(currentTab,index){
+    if(index == lastActive){
+        currentTab.activate()
+    }
+})
+
+tabGroup.on("tab-active", (tab) => {
+    store.set('lastActive', tab.id)
+ });
+
+ 
