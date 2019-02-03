@@ -1,6 +1,7 @@
 .tabs {
     width: 100px !important;
-    height: 100vh !important
+    height: 100vh !important;
+    background-color: rgb(56, 38, 21) !important
 }
 
 .tab {
