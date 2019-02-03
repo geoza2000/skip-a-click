@@ -60,3 +60,11 @@
     height: 100vh !important;
     padding: 0 !important;
 }
+
+.draggable {
+    text-align: center;
+    height: 20px;
+    color: white;
+    background-color: #20150a;
+    -webkit-app-region: drag
+}
