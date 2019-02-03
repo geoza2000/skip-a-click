@@ -11,19 +11,21 @@ const store = new Store({
     // We'll call our data file 'user-preferences'
     configName: 'user-preferences',
     defaults: {
-      // 1 is the default opened tab of our window
+      //The first tab is the default opened tab of our window
       lastActive: 0
     }
   });
 
 
 let tabGroup = new TabGroup({
+    //Creates the draggable instance
     ready: function (tabGroup) {
         dragula([tabGroup.tabContainer], {
             direction: "vertical"
         });
     }
 });
+
 
 let tab1 = tabGroup.addTab({
     title: "",
@@ -45,6 +47,7 @@ let tab2 = tabGroup.addTab({
     closable: false
 });
 
+//When the app opens, show the last tab opened.
 var lastActive = store.get('lastActive')
 tabGroup.eachTab(function(currentTab,index){
     if(index == lastActive){
@@ -52,6 +55,7 @@ tabGroup.eachTab(function(currentTab,index){
     }
 })
 
+//Saves the opened tab for the next run of the app.
 tabGroup.on("tab-active", (tab) => {
     store.set('lastActive', tab.id)
  });
