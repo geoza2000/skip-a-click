@@ -18,6 +18,7 @@ let tab1 = tabGroup.addTab({
     title: "",
     iconURL: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png',
     src: "http://mail.crowdpolicy.com",
+    visible: true,
     closable: false
 });
 let tab = tabGroup.addTab({
