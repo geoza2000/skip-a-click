@@ -5,17 +5,23 @@
 const TabGroup = require("electron-tabs");
 let tabGroup = new TabGroup();
 let tab = tabGroup.addTab({
-    title: "Jira",
+    title: '',
+    iconURL: 'https://luna1.co/5ad265.png',
     src: "https://crowdpolicy2.atlassian.net",
-    visible: true
+    visible: true,
+    closable: false
 });
 let tab1 = tabGroup.addTab({
-    title: "Mail",
+    title: "",
+    iconURL: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png',
     src: "http://mail.crowdpolicy.com",
-    visible: true
+    visible: true,
+    closable: false
 });
 let tab2 = tabGroup.addTab({
-    title: "Slack",
+    title: "",
+    iconURL: 'https://a.slack-edge.com/45901/marketing/img/_rebrand/meta/slack_hash_256.png',
     src: "https://crowdpolicy.slack.com/",
-    visible: true
+    visible: true,
+    closable: false
 });
