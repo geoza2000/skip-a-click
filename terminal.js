@@ -17,7 +17,9 @@ const ptyProcess = pty.spawn(shell, [], {
 Terminal.applyAddon(fit);
 
 //Creates the instance of the terminal.
-var term = new Terminal();
+var term = new Terminal({
+    cursorBlink:true //Enables cursor blink
+});
 term.open(document.getElementById('terminal'));
 term.fit(); //Takes the correct width and heigth for the window the terminal runs.
 
