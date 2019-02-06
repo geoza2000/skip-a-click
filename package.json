@@ -5,9 +5,10 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . skip-a-cick --platform=win32"
+    "build_win": "electron-packager . skip-a-cick --platform=win32",
+    "build_linux": "electron-packager . skip-a-cick --platform=linux",
+    "build_mac": "electron-packager . skip-a-cick --platform=mac"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
   "author": "DM, geoza",
   "devDependencies": {
     "electron": "^4.0.3",
