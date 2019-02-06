@@ -9,7 +9,7 @@ const store = new Store({
   configName: 'user-preferences',
   defaults: {
     // 800x600 is the default size of our window
-    windowBounds: { width: 800, height: 600 }
+    windowBounds: { width: 1000, height: 600 }
   }
 });
 

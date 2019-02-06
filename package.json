@@ -8,13 +8,18 @@
     "build_win": "electron-packager . skip-a-cick --platform=win32",
     "build_linux": "electron-packager . skip-a-cick --platform=linux",
     "build_mac": "electron-packager . skip-a-cick --platform=mac"
+
   },
   "author": "DM, geoza",
   "devDependencies": {
     "electron": "^4.0.3",
-    "electron-packager": "^13.0.1"
+    "electron-packager": "^13.0.1",
+    "electron-rebuild": "^1.8.2"
   },
   "dependencies": {
-    "electron-tabs": "^0.9.5"
+    "dragula": "^3.7.2",
+    "electron-tabs": "^0.9.5",
+    "node-pty": "^0.8.1",
+    "xterm": "^3.11.0"
   }
 }
