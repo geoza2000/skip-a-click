@@ -1,18 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Skip-A-Click</title>
-    <link rel="stylesheet" href="node_modules/electron-tabs/electron-tabs.css">
-  </head>
-  <body>
-    <div class="etabs-tabgroup">
-      <div class="etabs-tabs"></div>
-      <div class="etabs-buttons"></div>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Skip-A-Click</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="node_modules/electron-tabs/electron-tabs.css">
+</head>
+
+<body>
+  <button class="closeapp" id="close-btn">X</button>
+
+  <div class="draggable"></div>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      
+      <div class="etabs-tabgroup tabs">
+        <div class="etabs-tabs tab"></div>
+        <div class="etabs-buttons"></div>
+      </div>
+
+      <div class="etabs-views col"></div>
+
+
     </div>
-    <div class="etabs-views"></div>
-    <script>
-      require('./renderer.js')
-    </script>
-  </body>
+  </div>
+
+
+
+
+
+  <script>
+    require('./renderer.js')
+
+    const remote = require('electron').remote
+
+    document.getElementById("close-btn").addEventListener("click", (e) => {
+      var window = remote.getCurrentWindow();
+      window.close();
+    });
+
+  </script>
+</body>
+
 </html>

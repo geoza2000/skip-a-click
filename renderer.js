@@ -3,19 +3,61 @@
 // All of the Node.js APIs are available in this process.
 
 const TabGroup = require("electron-tabs");
-let tabGroup = new TabGroup();
-let tab = tabGroup.addTab({
-    title: "Jira",
-    src: "https://crowdpolicy2.atlassian.net",
-    visible: true
+const dragula = require("dragula");
+const Store = require('./store.js');
+
+// First instantiate the class
+const store = new Store({
+    // We'll call our data file 'user-preferences'
+    configName: 'user-preferences',
+    defaults: {
+      //The first tab is the default opened tab of our window
+      lastActive: 0
+    }
+  });
+
+
+let tabGroup = new TabGroup({
+    //Creates the draggable instance
+    ready: function (tabGroup) {
+        dragula([tabGroup.tabContainer], {
+            direction: "vertical"
+        });
+    }
 });
+
+
 let tab1 = tabGroup.addTab({
-    title: "Mail",
+    title: "",
+    iconURL: 'https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png',
     src: "http://mail.crowdpolicy.com",
-    visible: true
+    closable: false
 });
+let tab = tabGroup.addTab({
+    title: '',
+    iconURL: 'https://luna1.co/5ad265.png',
+    src: "https://crowdpolicy2.atlassian.net",
+    closable: false
+});
+
 let tab2 = tabGroup.addTab({
-    title: "Slack",
+    title: "",
+    iconURL: 'https://a.slack-edge.com/45901/marketing/img/_rebrand/meta/slack_hash_256.png',
     src: "https://crowdpolicy.slack.com/",
-    visible: true
+    closable: false
 });
+
+//When the app opens, show the last tab opened.
+var lastActive = store.get('lastActive')
+tabGroup.eachTab(function(currentTab,index){
+    if(index == lastActive){
+        currentTab.activate()
+    }
+})
+
+//Saves the opened tab for the next run of the app.
+tabGroup.on("tab-active", (tab) => {
+    store.set('lastActive', tab.id)
+ });
+
+ 

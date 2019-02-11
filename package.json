@@ -8,12 +8,13 @@
     "build": "electron-packager . skip-a-cick --platform=win32"
   },
   "repository": "https://github.com/electron/electron-quick-start",
-  "author": "DM",
+  "author": "DM, geoza",
   "devDependencies": {
     "electron": "^4.0.3",
     "electron-packager": "^13.0.1"
   },
   "dependencies": {
+    "dragula": "^3.7.2",
     "electron-tabs": "^0.9.5"
   }
 }
