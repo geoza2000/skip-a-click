@@ -1,6 +1,6 @@
 .tabs {
     width: 100px !important;
-    height: 100vh !important;
+    height: calc(100vh - 20px) !important;
     background-color: #382615 !important
 }
 
@@ -47,7 +47,7 @@
     position: absolute;
     top: 30px;
     right: 30px;
-    color: black;
+    color: white;
     font-size: 30px;
     z-index: 10;
     border: 0;
@@ -57,8 +57,14 @@
 
 .etabs-views {
     border: 0 !important;
-    height: 100vh !important;
+    height: calc(100vh - 20px) !important;
     padding: 0 !important;
+    width: 100% !important;
+}
+
+.terminal {
+    height: calc(100vh - 20px);
+    padding: 0 0 !important
 }
 
 .draggable {
